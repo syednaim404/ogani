@@ -37,7 +37,7 @@
                                     <div class="col-lg-12">
                                         <div class="checkout__input">
                                             <p>Full Name<span>*</span></p>
-                                            <input type="text" name="name" placeholder="Enter Your Full Name">
+                                            <input type="text" name="name" placeholder="Enter Your Full Name" required>
                                         </div>
                                     </div>
 
@@ -47,20 +47,20 @@
                                     <div class="col-lg-6">
                                         <div class="checkout__input">
                                             <p>Phone<span>*</span></p>
-                                            <input type="number" name="mobile" placeholder="Enter Your Mobile Number">
+                                            <input type="number" name="mobile" placeholder="Enter Your Mobile Number" required>
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="checkout__input">
                                             <p>Email<span>*</span></p>
-                                            <input type="email" name="email" placeholder="Enter Your Email">
+                                            <input type="email" name="email" placeholder="Enter Your Email" required>
                                         </div>
                                     </div>
                                 </div>
                             @endif
                             <div class="checkout__input">
                                     <p>Address<span>*</span></p>
-                                    <input type="text" name="delivery_address" placeholder="Enter Delivery Address"
+                                    <input type="text" name="delivery_address" placeholder="Enter Delivery Address" required
                                         class="checkout__input__add">
                                 </div>
 
