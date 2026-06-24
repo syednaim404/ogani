@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 24, 2026 at 07:53 AM
+-- Generation Time: Jun 24, 2026 at 02:23 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -147,8 +147,8 @@ CREATE TABLE `cache` (
 --
 
 INSERT INTO `cache` (`key`, `value`, `expiration`) VALUES
-('laravel_cache_c525a5357e97fef8d3db25841c86da1a', 'i:1;', 1782111794),
-('laravel_cache_c525a5357e97fef8d3db25841c86da1a:timer', 'i:1782111794;', 1782111794);
+('laravel_cache_c525a5357e97fef8d3db25841c86da1a', 'i:1;', 1782303262),
+('laravel_cache_c525a5357e97fef8d3db25841c86da1a:timer', 'i:1782303262;', 1782303262);
 
 -- --------------------------------------------------------
 
@@ -285,7 +285,7 @@ CREATE TABLE `customers` (
 --
 
 INSERT INTO `customers` (`id`, `name`, `email`, `mobile`, `password`, `address`, `date_of_birth`, `nid`, `blood_group`, `customer_type`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'vabi', 'vabi@gmail.com', '018', '$2y$12$Mp7rcbrlE.eUBa2m34xMvOyxWInbypBHzKLnOriASepUh55kSu1bG', NULL, NULL, NULL, NULL, 'General', 1, '2026-06-22 03:36:33', '2026-06-22 03:36:33');
+(2, 'Syed Naim', 'naim@gmail.com', '123', '$2y$12$hq63g2Y.o5lP4mLUjYQYBuVfN6.7G1sin8quXYTeU1fZkgvy4I3Na', NULL, NULL, NULL, NULL, 'General', 1, '2026-06-24 06:16:38', '2026-06-24 06:16:38');
 
 -- --------------------------------------------------------
 
@@ -464,6 +464,13 @@ CREATE TABLE `orders` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `customer_id`, `courier_id`, `order_total`, `tax_total`, `shipping_total`, `order_status`, `order_date`, `order_timestamp`, `delivery_address`, `delivery_date`, `delivery_timestamp`, `delivery_status`, `payment_method`, `payment_amount`, `payment_date`, `payment_timestamp`, `payment_status`, `currency`, `transaction_id`, `created_at`, `updated_at`) VALUES
+(3, 2, 0, 340, 51, 100, 'Processing', '2026-06-24', '1782259200', 'mirpur', NULL, NULL, 'Pending', 'online', 0, NULL, NULL, 'Pending', 'BDT', '6a3bcb26b5033', NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -487,7 +494,8 @@ CREATE TABLE `order_details` (
 
 INSERT INTO `order_details` (`id`, `order_id`, `product_id`, `product_name`, `product_price`, `product_qty`, `created_at`, `updated_at`) VALUES
 (1, 1, 35, 'China Fuji Apple', 234, 1, '2026-06-22 03:36:33', '2026-06-22 03:36:33'),
-(2, 1, 37, 'Sobuj Angur', 209, 1, '2026-06-22 03:36:33', '2026-06-22 03:36:33');
+(2, 1, 37, 'Sobuj Angur', 209, 1, '2026-06-22 03:36:33', '2026-06-22 03:36:33'),
+(3, 3, 37, 'Sobuj Angur', 340, 1, '2026-06-24 06:18:46', '2026-06-24 06:18:46');
 
 -- --------------------------------------------------------
 
@@ -789,7 +797,8 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('U7kBurjvSqIWCIRCHKclDuWyeoX6q02Ge0C9SIpd', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36', 'YTo4OntzOjY6Il90b2tlbiI7czo0MDoiZnJ5c0Zpd1FMV2RVY2R1M1M5cTNKVG9uR3RBYlZQS1lyWTZsclNMSCI7czoxODoiZmxhc2hlcjo6ZW52ZWxvcGVzIjthOjA6e31zOjk6Il9wcmV2aW91cyI7YToyOntzOjM6InVybCI7czoyMToiaHR0cDovLzEyNy4wLjAuMTo4MDAwIjtzOjU6InJvdXRlIjtzOjQ6ImhvbWUiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjM6InVybCI7YTowOnt9czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTtzOjIxOiJwYXNzd29yZF9oYXNoX3NhbmN0dW0iO3M6NjQ6IjAyMzhiYTY0NDk5NDY3M2Q2YWNjYzk1MzBhZjhlZGFiYzJhMmVjNWViMDk3ZGM3ZGRmOTE4MGNhMTlhYmQ3NmEiO3M6NDoiY2FydCI7YToxOntzOjc6ImRlZmF1bHQiO086Mjk6IklsbHVtaW5hdGVcU3VwcG9ydFxDb2xsZWN0aW9uIjoyOntzOjg6IgAqAGl0ZW1zIjthOjI6e3M6MzI6ImNlYjMxNDE1MTFiMmEyZWRiZDQ5OGY4YzBhMWEzZTM0IjtPOjMyOiJHbG91ZGVtYW5zXFNob3BwaW5nY2FydFxDYXJ0SXRlbSI6MTE6e3M6NToicm93SWQiO3M6MzI6ImNlYjMxNDE1MTFiMmEyZWRiZDQ5OGY4YzBhMWEzZTM0IjtzOjI6ImlkIjtpOjI1O3M6MzoicXR5IjtzOjE6IjEiO3M6NDoibmFtZSI7czo5OiJQYWthIFBhcGUiO3M6NToicHJpY2UiO2Q6NDE7czo2OiJ3ZWlnaHQiO2Q6MDtzOjc6Im9wdGlvbnMiO086Mzk6Ikdsb3VkZW1hbnNcU2hvcHBpbmdjYXJ0XENhcnRJdGVtT3B0aW9ucyI6Mjp7czo4OiIAKgBpdGVtcyI7YTo0OntzOjU6ImltYWdlIjtzOjM1OiJ1cGxvYWQvcHJvZHVjdC1pbWFnZS8xNzgxOTY0MDE1LmpwZyI7czo4OiJjYXRlZ29yeSI7czoxNzoiRnJ1aXQgJiBOdXQgR2lmdHMiO3M6NToiYnJhbmQiO3M6MTE6IkJhbmdsYWRlc2hpIjtzOjQ6InVuaXQiO3M6NToiUGVhY2giO31zOjI4OiIAKgBlc2NhcGVXaGVuQ2FzdGluZ1RvU3RyaW5nIjtiOjA7fXM6NzoidGF4UmF0ZSI7aToyMTtzOjQ5OiIAR2xvdWRlbWFuc1xTaG9wcGluZ2NhcnRcQ2FydEl0ZW0AYXNzb2NpYXRlZE1vZGVsIjtOO3M6NDY6IgBHbG91ZGVtYW5zXFNob3BwaW5nY2FydFxDYXJ0SXRlbQBkaXNjb3VudFJhdGUiO2k6MDtzOjg6Imluc3RhbmNlIjtzOjc6ImRlZmF1bHQiO31zOjMyOiI2OTdhYmQ5NjA5MmY0ZGRiNWQyNDdhNDkzM2NhNzBkZCI7TzozMjoiR2xvdWRlbWFuc1xTaG9wcGluZ2NhcnRcQ2FydEl0ZW0iOjExOntzOjU6InJvd0lkIjtzOjMyOiI2OTdhYmQ5NjA5MmY0ZGRiNWQyNDdhNDkzM2NhNzBkZCI7czoyOiJpZCI7aTozNztzOjM6InF0eSI7czoxOiIxIjtzOjQ6Im5hbWUiO3M6MTE6IlNvYnVqIEFuZ3VyIjtzOjU6InByaWNlIjtkOjM0MDtzOjY6IndlaWdodCI7ZDowO3M6Nzoib3B0aW9ucyI7TzozOToiR2xvdWRlbWFuc1xTaG9wcGluZ2NhcnRcQ2FydEl0ZW1PcHRpb25zIjoyOntzOjg6IgAqAGl0ZW1zIjthOjQ6e3M6NToiaW1hZ2UiO3M6MzU6InVwbG9hZC9wcm9kdWN0LWltYWdlLzE3ODE5NzAxNTcuanBnIjtzOjg6ImNhdGVnb3J5IjtzOjE3OiJGcnVpdCAmIE51dCBHaWZ0cyI7czo1OiJicmFuZCI7czoyOiJVSyI7czo0OiJ1bml0IjtzOjEzOiJLaWxvZ3JhbSAoa2cpIjt9czoyODoiACoAZXNjYXBlV2hlbkNhc3RpbmdUb1N0cmluZyI7YjowO31zOjc6InRheFJhdGUiO2k6MjE7czo0OToiAEdsb3VkZW1hbnNcU2hvcHBpbmdjYXJ0XENhcnRJdGVtAGFzc29jaWF0ZWRNb2RlbCI7TjtzOjQ2OiIAR2xvdWRlbWFuc1xTaG9wcGluZ2NhcnRcQ2FydEl0ZW0AZGlzY291bnRSYXRlIjtpOjA7czo4OiJpbnN0YW5jZSI7czo3OiJkZWZhdWx0Ijt9fXM6Mjg6IgAqAGVzY2FwZVdoZW5DYXN0aW5nVG9TdHJpbmciO2I6MDt9fX0=', 1782144993);
+('9JHTfBMlviTfUWxEoeI5jBBla2XzcauxAWa9Jpx1', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoibUhtVlVEV1Y2TGtPd3V3RkRzME5FNVFqeDhCa1JlY3Q5YWFoNGpGMiI7czoxMToiY3VzdG9tZXJfaWQiO3M6MToiMiI7czoxMzoiY3VzdG9tZXJfbmFtZSI7czo5OiJTeWVkIE5haW0iO3M6NjoiX2ZsYXNoIjthOjI6e3M6MzoibmV3IjthOjA6e31zOjM6Im9sZCI7YTowOnt9fXM6MTg6ImZsYXNoZXI6OmVudmVsb3BlcyI7YTowOnt9czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7czo1OiJyb3V0ZSI7czo0OiJob21lIjt9fQ==', 1782303581),
+('i20z96MWFiNVMGlRXeQXdHLJjW6XPmKJS2frTa4f', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36', 'YToxMDp7czo2OiJfdG9rZW4iO3M6NDA6ImZIUnJEdnJvd0E4OTlISEVKVWVBZkJFYUY0Zm5rWlBDZVJmTnRNZ3giO3M6MTg6ImZsYXNoZXI6OmVudmVsb3BlcyI7YTowOnt9czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MzA6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9jaGVja291dCI7czo1OiJyb3V0ZSI7czoxNDoiY2hlY2tvdXQuaW5kZXgiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjM6InVybCI7YTowOnt9czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTtzOjIxOiJwYXNzd29yZF9oYXNoX3NhbmN0dW0iO3M6NjQ6IjAyMzhiYTY0NDk5NDY3M2Q2YWNjYzk1MzBhZjhlZGFiYzJhMmVjNWViMDk3ZGM3ZGRmOTE4MGNhMTlhYmQ3NmEiO3M6MTE6ImN1c3RvbWVyX2lkIjtpOjI7czoxMzoiY3VzdG9tZXJfbmFtZSI7czo5OiJTeWVkIE5haW0iO3M6NDoiY2FydCI7YToxOntzOjc6ImRlZmF1bHQiO086Mjk6IklsbHVtaW5hdGVcU3VwcG9ydFxDb2xsZWN0aW9uIjoyOntzOjg6IgAqAGl0ZW1zIjthOjE6e3M6MzI6IjY5N2FiZDk2MDkyZjRkZGI1ZDI0N2E0OTMzY2E3MGRkIjtPOjMyOiJHbG91ZGVtYW5zXFNob3BwaW5nY2FydFxDYXJ0SXRlbSI6MTE6e3M6NToicm93SWQiO3M6MzI6IjY5N2FiZDk2MDkyZjRkZGI1ZDI0N2E0OTMzY2E3MGRkIjtzOjI6ImlkIjtpOjM3O3M6MzoicXR5IjtzOjE6IjEiO3M6NDoibmFtZSI7czoxMToiU29idWogQW5ndXIiO3M6NToicHJpY2UiO2Q6MzQwO3M6Njoid2VpZ2h0IjtkOjA7czo3OiJvcHRpb25zIjtPOjM5OiJHbG91ZGVtYW5zXFNob3BwaW5nY2FydFxDYXJ0SXRlbU9wdGlvbnMiOjI6e3M6ODoiACoAaXRlbXMiO2E6NDp7czo1OiJpbWFnZSI7czozNToidXBsb2FkL3Byb2R1Y3QtaW1hZ2UvMTc4MTk3MDE1Ny5qcGciO3M6ODoiY2F0ZWdvcnkiO3M6MTc6IkZydWl0ICYgTnV0IEdpZnRzIjtzOjU6ImJyYW5kIjtzOjI6IlVLIjtzOjQ6InVuaXQiO3M6MTM6IktpbG9ncmFtIChrZykiO31zOjI4OiIAKgBlc2NhcGVXaGVuQ2FzdGluZ1RvU3RyaW5nIjtiOjA7fXM6NzoidGF4UmF0ZSI7aToyMTtzOjQ5OiIAR2xvdWRlbWFuc1xTaG9wcGluZ2NhcnRcQ2FydEl0ZW0AYXNzb2NpYXRlZE1vZGVsIjtOO3M6NDY6IgBHbG91ZGVtYW5zXFNob3BwaW5nY2FydFxDYXJ0SXRlbQBkaXNjb3VudFJhdGUiO2k6MDtzOjg6Imluc3RhbmNlIjtzOjc6ImRlZmF1bHQiO319czoyODoiACoAZXNjYXBlV2hlbkNhc3RpbmdUb1N0cmluZyI7YjowO319fQ==', 1782303504);
 
 -- --------------------------------------------------------
 
@@ -1130,7 +1139,7 @@ ALTER TABLE `couriers`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -1166,13 +1175,13 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `passkeys`
