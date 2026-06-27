@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Advertise;
 use App\Models\Blog;
+use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Contact;
 use App\Models\Footer;
@@ -14,17 +15,31 @@ class WebsiteControllewr extends Controller
 {
     public function index()
     {
-        $latestProducts = Product::where('status', 1)->latest()->get();
-        $first_three    = $latestProducts->slice(0, 3);
-        $next_three     = $latestProducts->slice(3, 3);
+        $latestProducts       = Product::where('status', 1)->latest()->get();
+        $first_three          = $latestProducts->slice(0, 3);
+        $next_three           = $latestProducts->slice(3, 3);
+
+        $populerBrand         = Brand::where('status', 1)->latest()->get();
+        $first_three_brand    = $populerBrand->slice(0, 3);
+        $next_three_brand     = $populerBrand->slice(3, 3);
+
+        $populerCategory      = Category::where('status', 1)->get();
+        $first_three_category = $populerCategory->slice(0, 3);
+        $next_three_category  = $populerCategory->slice(3, 3);
 
         return view('website.home.index', [
-            'featured_product' => Product::where('status', 1)->where('featured', 1)->latest()->take(12)->get(),
-            'categories'       => Product::where('status', 1)->latest()->get(),
-            'advertises'       => Advertise::where('status', 1)->latest()->take(2)->get(),
-            'first_three'      => $first_three,
-            'next_three'       => $next_three,
-            'blogs'            => Blog::where('status', 1)->take(3)->latest()->get(),
+
+            'discount_products'     => Product::where('status', 1)->where('discount', '>', 0)->latest()->get(),
+            'featured_product'      => Product::where('status', 1)->where('featured', 1)->latest()->take(12)->get(),
+            'categories'            => Product::where('status', 1)->latest()->get(),
+            'advertises'            => Advertise::where('status', 1)->latest()->take(2)->get(),
+            'first_three'           => $first_three,
+            'next_three'            => $next_three,
+            'first_three_brands'    => $first_three_brand,
+            'next_three_brands'     => $next_three_brand,
+            'first_three_categorys' => $first_three_category,
+            'next_three_categorys'  => $next_three_category,
+            'blogs'                 => Blog::where('status', 1)->latest()->get(),
 
         ]);
     }
@@ -39,10 +54,10 @@ class WebsiteControllewr extends Controller
 
 
             'discount_products' => Product::where('status', 1)->where('discount', '>', 0)->latest()->get(),
-            'products'    => Product::where('category_id', $id)->where('status', 1)->get(),
-            'categories'  => Category::where('status', 1)->get(),
-            'first_three' => $first_three,
-            'next_three'  => $next_three,
+            'products'          => Product::where('category_id', $id)->where('status', 1)->latest()->get(),
+            'categories'        => Category::where('status', 1)->get(),
+            'first_three'       => $first_three,
+            'next_three'        => $next_three,
 
         ]);
     }
@@ -72,10 +87,10 @@ class WebsiteControllewr extends Controller
     public function blog()
     {
         return view('website.blog.index', [
-            'blogs'      => Blog::where('status', 1)->latest()->get(),
-            'categories' => Category::where('status', 1)->get(),
-            'recent_news' => Blog::where('status', 1)->latest()->take(3)->get(),
-            ]);
+            'blogs'       => Blog::where('status', 1)->latest()->get(),
+            'categories'  => Category::where('status', 1)->get(),
+            'recent_news' => Blog::where('status', 1)->latest()->get(),
+        ]);
     }
 
     public function blogDetails($id)
@@ -84,7 +99,7 @@ class WebsiteControllewr extends Controller
 
             'blog'        => Blog::find($id),
             'categories'  => Category::where('status', 1)->get(),
-            'blogs'       => Blog::where('status', 1)->take(3)->get(),
+            'blogs'       => Blog::where('status', 1)->get(),
             'recent_news' => Blog::where('status', 1)->latest()->take(3)->get(),
 
         ]);

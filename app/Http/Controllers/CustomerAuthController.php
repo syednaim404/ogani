@@ -64,8 +64,6 @@ class CustomerAuthController extends Controller
             return back()->with('message', 'This mobile number already exists');
         }
 
-
-
         // new customer create
         $customer           = new Customer();
         $customer->name     = $request->name;

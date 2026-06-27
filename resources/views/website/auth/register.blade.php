@@ -12,24 +12,24 @@
                     <div class="mb-3">
                         <label for="exampleInputName" class="form-label">Full Name</label>
                         <input type="text" name="name" placeholder="Enter Your Name" class="form-control"
-                            id="exampleInputName" >
+                            id="exampleInputName" required>
                     </div>
 
                     <div class="mb-3">
                         <label for="exampleInputEmail" class="form-label">Email</label>
                         <input type="email" name="email" placeholder="Enter Your Email" class="form-control"
-                            id="exampleInputEmail" >
+                            id="exampleInputEmail" required>
                     </div>
 
                     <div class="mb-3">
                         <label for="exampleInputMobile" class="form-label">Mobile</label>
                         <input type="number" name="mobile" placeholder="Enter Your Mobile" class="form-control"
-                            id="exampleInputMobile" >
+                            id="exampleInputMobile" required>
                     </div>
 
                     <div class="mb-3">
                         <label for="exampleInputPassword" class="form-label">Password</label>
-                        <input type="password" name="password" placeholder="Password" class="form-control" id="exampleInputPassword" >
+                        <input type="password" name="password" placeholder="Password" class="form-control" id="exampleInputPassword" required>
                    
                     </div>
 

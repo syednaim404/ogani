@@ -12,7 +12,11 @@ class CartController extends Controller
 {
     public function index()
     {
-        return view('website.cart.index', ['cart_products'=> Cart::content()]);
+
+        return view('website.cart.index', [
+            'cart_products' => Cart::content(),
+
+        ]);
     }
 
     public function addToCart(Request $request, $id)
@@ -36,7 +40,7 @@ class CartController extends Controller
         return redirect()->route('cart.index');
     }
 
-      public function updateCart(Request $request, $rowId)
+    public function updateCart(Request $request, $rowId)
     {
         Cart::update($rowId, $request->qty);
         flash()->success('Cart Updated Successfully');
@@ -50,32 +54,26 @@ class CartController extends Controller
         return redirect()->route('cart.index');
     }
 
-      public function applyCoupon(Request $request)
+    public function applyCoupon(Request $request)
     {
-        $request->validate([
-            'code' => 'required|string'
-        ]);
 
-        $coupon = Coupon::where('code', $request->coupon)->first();
+        $coupon = Coupon::where('code', $request->code)->first();
 
         if (!$coupon) {
             return back()->with('message', 'Invalid coupon code.');
         }
 
-
-
-        $startDate = Carbon::parse($coupon->start_date);
-        $endDate = Carbon::parse($coupon->end_date);
-        $now = Carbon::now();
+        $startDate  = Carbon::parse($coupon->start_date);
+        $endDate    = Carbon::parse($coupon->end_date);
+        $now        = Carbon::now();
 
         if ($now->between($startDate, $endDate)) {
             $discount = $coupon->discount_amount;
-
+            flash()->success('Discount has been applied successfully.');
+        
             return view('website.cart.index', compact('discount'));
         } else {
             return back()->with('message', 'Coupon is expired or not valid at this time.');
         }
     }
-
-    
 }

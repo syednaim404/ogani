@@ -32,30 +32,41 @@
                     <div class="row">
                         @csrf
                         <div class="col-lg-8 col-md-6">
+                             <p class="text-center text-danger my-2">{{session('message')}}</p>
                             @if (!Session::get('customer_id'))
                                 <div class="row">
-                                    <div class="col-lg-12">
+                                   
+                                    <div class="col-lg-6">
                                         <div class="checkout__input">
                                             <p>Full Name<span>*</span></p>
                                             <input type="text" name="name" placeholder="Enter Your Full Name" required>
+                                        </div>
+                                    </div>
+                                     <div class="col-lg-6">
+                                        <div class="checkout__input">
+                                            <p>Email<span>*</span></p>
+                                            <input type="email" name="email" placeholder="Enter Your Email" required>
                                         </div>
                                     </div>
 
                                 </div>
 
                                 <div class="row">
+
                                     <div class="col-lg-6">
                                         <div class="checkout__input">
-                                            <p>Phone<span>*</span></p>
+                                            <p>Mobile<span>*</span></p>
                                             <input type="number" name="mobile" placeholder="Enter Your Mobile Number" required>
                                         </div>
                                     </div>
+                                    
                                     <div class="col-lg-6">
                                         <div class="checkout__input">
-                                            <p>Email<span>*</span></p>
-                                            <input type="email" name="email" placeholder="Enter Your Email" required>
+                                            <p>Password<span>*</span></p>
+                                            <input type="password" name="password" placeholder="Enter Your Mobile Number" required>
                                         </div>
                                     </div>
+                                   
                                 </div>
                             @endif
                             <div class="checkout__input">

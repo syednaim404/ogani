@@ -48,12 +48,13 @@
                                         <td class="shoping__cart__price">
                                             BET {{ $cartProduct->price }}
                                         </td>
-                                        <form action="{{route('cart.update', $cartProduct->rowId)}}" method="post">
+                                        <form action="{{ route('cart.update', $cartProduct->rowId) }}" method="post">
                                             @csrf
                                             <td class="shoping__cart__quantity">
                                                 <div class="quantity">
                                                     <div class="pro-qty">
-                                                        <input type="number" name="qty" value="{{ $cartProduct->qty }}" min="1" required>
+                                                        <input type="number" name="qty" value="{{ $cartProduct->qty }}"
+                                                            min="1" required>
                                                     </div>
                                                     <input type="submit" class="btn btn-success rounded-0" value="Update">
                                                 </div>
@@ -64,11 +65,12 @@
                                             {{ $cartProduct->qty * $cartProduct->price }}
                                         </td>
                                         <td class="shoping__cart__item__close">
-                                            <a href="{{route('cart.remove', $cartProduct->rowId)}}"><i class="fa-solid fa-circle-xmark text-secondary"></i></a>
-                                            
+                                            <a href="{{ route('cart.remove', $cartProduct->rowId) }}"><i
+                                                    class="fa-solid fa-circle-xmark text-secondary"></i></a>
+
                                         </td>
                                     </tr>
-                                    @php($sum = $sum + ($cartProduct->qty * $cartProduct->price))
+                                    @php($sum = $sum + $cartProduct->qty * $cartProduct->price)
                                 @endforeach
 
 
@@ -82,11 +84,14 @@
                 <div class="col-lg-6">
                     <div class="shoping__continue">
                         <div class="shoping__discount">
-                            <h5>Discount Codes</h5>
-                            <form action="{{route('applyCoupon')}}" method="post">
+                            <div class=" d-flex">
+                                <h5>Discount Codes</h5>
+                                <p class="ml-2">{{ session('message') }}</p>
+                            </div>
+                            <form action="{{route('apply.coupon') }}" method="post">
                                 @csrf
-                                <input type="text" name="coupon" value="{{ old('coupon') }}"  placeholder="Enter your coupon code">
-                               @error('coupon')
+                                <input type="text" name="code" placeholder="Enter your coupon code" required>
+                                @error('code')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
                                 <button type="submit" class="site-btn">APPLY COUPON</button>
@@ -99,13 +104,14 @@
                     <div class="shoping__checkout">
                         <h5>Cart Total</h5>
                         <ul>
-                            <li>Subtotal <span>{{$sum}}</span></li>
-                            <li>Tax Amount <span>{{$tax = round(($sum * 0.15))}}</span></li>
-                            <li>Shipping <span>{{$shippingCost = ($sum> 0 ? 100 : 0)}}</span></li>
-                        
-                            <li>Total Pay <span>{{ $totalPay = ($sum + $tax + $shippingCost)}}</span></li>
+                            <li>Subtotal <span>{{ $sum }}</span></li>
+                            <li>Tax Amount <span>{{ $tax = round($sum * 0.15) }}</span></li>
+                            <li>Shipping <span>{{ $shippingCost = $sum > 0 ? 100 : 0 }}</span></li>
+
+                            <li>Total Pay <span>{{ $totalPay = $sum + $tax + $shippingCost }}</span></li>
+
                         </ul>
-                       
+
                         <a href="{{ route('checkout.index') }}" class="primary-btn">PROCEED TO CHECKOUT</a>
                     </div>
                 </div>

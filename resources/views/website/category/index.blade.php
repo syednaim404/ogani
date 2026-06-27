@@ -158,38 +158,7 @@
                     </div>
                 </div>
                 <div class="col-lg-9 col-md-7">
-                    <div class="product__discount">
-                        <div class="section-title product__discount__title">
-                            <h2>Sale Off</h2>
-                        </div>
-                        <div class="row">
-                            <div class="product__discount__slider owl-carousel">
-                                @foreach ($discount_products as $discount_product)
-                                    <div class="col-lg-4">
-                                        <div class="product__discount__item">
-                                            <div class="product__discount__item__pic set-bg"
-                                                data-setbg="{{ asset($discount_product->image) }}">
-                                                <div class="product__discount__percent">-{{ $discount_product->discount }}%
-                                                </div>
-                                                <ul class="product__item__pic__hover">
-                                                    <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="product__discount__item__text">
-                                                <span>{{$discount_product->brand->name}}</span>
-                                                <h5><a href="{{route('product.detail', $discount_product->id)}}">{{ $discount_product->name }}</a></h5>
-                                                <div class="product__item__price">
-                                                    {{  $discount_product->selling_price }}
-                                                    <span>{{  $discount_product->regular_price}}</span></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endforeach
-                            </div>
-                        </div>
-                    </div>
+                    
                     <div class="filter__item">
                         <div class="row">
                             <div class="col-lg-4 col-md-5">
@@ -217,8 +186,6 @@
                     </div>
                     <div class="row">
                         
-                            
-                       
                         @foreach ($products as $product)
                             <div class="col-lg-4 col-md-6 col-sm-6">
                                 <div class="product__item">
@@ -238,8 +205,8 @@
                                 </div>
                             </div>
                         @endforeach
-
                     </div>
+                    
                     <div class="product__pagination">
                         <a href="#">1</a>
                         <a href="#">2</a>

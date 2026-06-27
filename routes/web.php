@@ -38,7 +38,7 @@ Route::post('/add-to-cart/{id}', [CartController::class, 'addToCart'])->name('ca
 Route::post('/update-to-cart/{rowId}', [CartController::class, 'updateCart'])->name('cart.update');
 Route::get('/remove-to-cart/{rowId}', [CartController::class, 'removeCart'])->name('cart.remove');
 
-Route::post('apply/coupon', [CouponController::class, 'applyCoupon'])->name('applyCoupon');
+Route::post('apply/coupon', [CartController::class, 'applyCoupon'])->name('apply.coupon');
 
 Route::get('/customer-login', [CustomerAuthController::class, 'login'])->name('customer.login');
 Route::post('/customer-login-check', [CustomerAuthController::class, 'loginCheck'])->name('customer.login.check');
