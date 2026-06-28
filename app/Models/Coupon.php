@@ -17,13 +17,14 @@ class Coupon extends Model
 
     private static function saveData($request, $coupon)
     {
-        $coupon->code            = $request->code;
-        $coupon->discount_amount = $request->discount_amount;
-        $coupon->start_date      = $request->start_date;
-        $coupon->end_date        = $request->end_date;
-        $coupon->usage_limit     = $request->usage_limit;
-        $coupon->used_count      = $request->used_count;
-        $coupon->status          = $request->status ?? 1;
+        $coupon->code                   = $request->code;
+        $coupon->discount_type          = $request->discount_type;
+        $coupon->discount_value         = $request->discount_value;
+        $coupon->usage_limit            = $request->usage_limit;
+        $coupon->used_count             = $request->used_count ?? 0;
+        $coupon->expiry_date            = $request->expiry_date;
+        $coupon->minimum_order_amount   = $request->minimum_order_amount;
+        $coupon->status                 = $request->status ?? 1;
         $coupon->save();
     }
 

@@ -31,8 +31,8 @@
                         <div class="row mb-4">
                             <label class="col-md-3 form-label">Coupon Code</label>
                             <div class="col-md-9">
-                                <input type="text" name="code" value="{{ $coupon->code }}"
-                                    placeholder="Enter Coupon Code" class="form-control py-3">
+                                <input type="text" name="code" value="{{$coupon->code}}" placeholder="Enter Coupon Code"
+                                    class="form-control py-3">
                                 @error('code')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
@@ -40,51 +40,59 @@
                         </div>
 
                         <div class="row mb-4">
-                            <label class="col-md-3 form-label">Discount Amount</label>
+                            <label class="col-md-3 form-label">Discount Type</label>
                             <div class="col-md-9">
-                                <input type="number" name="discount_amount" value="{{ $coupon->discount_amount }}"
-                                    placeholder="Enter Discount Amount" class="form-control py-3">
-                                @error('discount_amount')
+                                <input type="text" name="discount_type"value="{{$coupon->discount_type}}" placeholder="Enter Discount Type"
+                                    class="form-control py-3">
+                                @error('discount_type')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
 
                             </div>
                         </div>
-
                         <div class="row mb-4">
-                            <label class="col-md-3 form-label">Start Date</label>
+                            <label class="col-md-3 form-label">Discount Value</label>
                             <div class="col-md-9">
-                                <input type="date" name="start_date" value="{{ $coupon->start_date }}"
-                                    placeholder="Enter Start Date" class="form-control py-3">
-                                @error('start_date')
+                                <input type="number" name="discount_value" value="{{$coupon->discount_value}}" placeholder="Enter Discount Value"
+                                    class="form-control py-3">
+                                @error('discount_value')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
-                            </div>
-                        </div>
 
-                        <div class="row mb-4">
-                            <label class="col-md-3 form-label">End Date</label>
-                            <div class="col-md-9">
-                                <input type="date" name="end_date" value="{{ $coupon->end_date }}"
-                                    placeholder="Enter End Date" class="form-control py-3">
-                                @error('end_date')
-                                    <span class="text-danger">{{ $message }}</span>
-                                @enderror
                             </div>
                         </div>
                         <div class="row mb-4">
                             <label class="col-md-3 form-label">Usage Limit</label>
                             <div class="col-md-9">
-                                <input type="number" name="usage_limit" value="{{ $coupon->usage_limit }}"
-                                    placeholder="Enter Uaseg Limit" class="form-control py-3">
-
+                                <input type="number" name="usage_limit" value="{{$coupon->usage_limit}}" placeholder="Enter Using Limit "
+                                    class="form-control py-3">
                             </div>
                         </div>
+
                         <div class="row mb-4">
                             <label class="col-md-3 form-label">Used Count</label>
                             <div class="col-md-9">
-                                <input type="number" name="used_count" value="{{ $coupon->used_count }}"
-                                    placeholder="Enter Uaseg Limit" class="form-control py-3">
+                                <input type="number" name="used_count" value="{{$coupon->used_count}}" placeholder="Enter Using Limit "
+                                    class="form-control py-3">
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <label class="col-md-3 form-label">Expiry Date</label>
+                            <div class="col-md-9">
+                                <input type="date" name="expiry_date" value="{{$coupon->expiry_date}}" placeholder="Enter Expiry Date"
+                                    class="form-control py-3">
+                                @error('expiry_date')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <label class="col-md-3 form-label">Minimum Order Amount</label>
+                            <div class="col-md-9">
+                                <input type="number" name="minimum_order_amount" value="{{$coupon->minimum_order_amount}}" placeholder="Minimum Order Amount"
+                                    class="form-control py-3">
+
                             </div>
                         </div>
 

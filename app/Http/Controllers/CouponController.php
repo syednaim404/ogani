@@ -31,10 +31,10 @@ class CouponController extends Controller
     {
         $request->validate([
 
-            'code'            => 'required',
-            'discount_amount' => 'required',
-            'start_date'      => 'required',
-            'end_date'        => 'required',
+            'code'           => 'required',
+            'discount_type'  => 'required',
+            'discount_value' => 'required',
+            'expiry_date'    => 'required',
         ]);
 
         Coupon::storeData($request);
@@ -65,10 +65,10 @@ class CouponController extends Controller
     {
         $request->validate([
 
-            'code'            => 'required',
-            'discount_amount' => 'required',
-            'start_date'      => 'required',
-            'end_date'        => 'required',
+            'code'           => 'required',
+            'discount_type'  => 'required',
+            'discount_value' => 'required',
+            'expiry_date'    => 'required',
         ]);
         Coupon::updateData($request, $coupon->id);
         flash()->success('Coupon Update Succesfully!');

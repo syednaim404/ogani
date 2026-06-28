@@ -39,53 +39,62 @@
                         </div>
 
                         <div class="row mb-4">
-                            <label class="col-md-3 form-label">Discount Amount</label>
+                            <label class="col-md-3 form-label">Discount Type</label>
                             <div class="col-md-9">
-                                <input type="number" name="discount_amount" placeholder="Enter Discount Amount"
+                                <input type="text" name="discount_type" placeholder="Enter Discount Type"
                                     class="form-control py-3">
-                                @error('discount_amount')
+                                @error('discount_type')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
 
                             </div>
                         </div>
-
                         <div class="row mb-4">
-                            <label class="col-md-3 form-label">Start Date</label>
+                            <label class="col-md-3 form-label">Discount Value</label>
                             <div class="col-md-9">
-                                <input type="date" name="start_date" placeholder="Enter Start Date"
+                                <input type="number" name="discount_value" placeholder="Enter Discount Value"
                                     class="form-control py-3">
-                                @error('start_date')
+                                @error('discount_value')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
-                            </div>
-                        </div>
 
-                        <div class="row mb-4">
-                            <label class="col-md-3 form-label">End Date</label>
-                            <div class="col-md-9">
-                                <input type="date" name="end_date" placeholder="Enter End Date"
-                                    class="form-control py-3">
-                                @error('end_date')
-                                    <span class="text-danger">{{ $message }}</span>
-                                @enderror
                             </div>
                         </div>
                         <div class="row mb-4">
                             <label class="col-md-3 form-label">Usage Limit</label>
                             <div class="col-md-9">
-                                <input type="number" name="usage_limit" placeholder="Enter Uaseg Limit"
+                                <input type="number" name="usage_limit" placeholder="Enter Using Limit "
+                                    class="form-control py-3">
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <label class="col-md-3 form-label">Used Count</label>
+                            <div class="col-md-9">
+                                <input type="number" name="used_count" placeholder="Enter Using Limit "
+                                    class="form-control py-3">
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <label class="col-md-3 form-label">Expiry Date</label>
+                            <div class="col-md-9">
+                                <input type="date" name="expiry_date" placeholder="Enter Expiry Date"
+                                    class="form-control py-3">
+                                @error('expiry_date')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <label class="col-md-3 form-label">Minimum Order Amount</label>
+                            <div class="col-md-9">
+                                <input type="number" name="minimum_order_amount" placeholder="Minimum Order Amount"
                                     class="form-control py-3">
 
                             </div>
                         </div>
-                        <div class="row mb-4">
-                            <label class="col-md-3 form-label">Used Count</label>
-                            <div class="col-md-9">
-                                <input type="number" name="used_count" placeholder="Enter Uaseg Limit"
-                                    class="form-control py-3">
-                            </div>
-                        </div>
+
 
 
                         <div class="row mb-4">

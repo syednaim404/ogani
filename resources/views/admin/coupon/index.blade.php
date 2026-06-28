@@ -31,10 +31,13 @@
                                 <tr>
                                     <th class="wd-15p border-bottom-0">#</th>
                                     <th class="wd-15p border-bottom-0">Code</th>
-                                    <th class="wd-15p border-bottom-0">Discount Amount</th>
-                                    <th class="wd-20p border-bottom-0">Start Date</th>
-                                    <th class="wd-10p border-bottom-0">End Date</th>
+                                    <th class="wd-15p border-bottom-0">Discount Type</th>
+                                    <th class="wd-20p border-bottom-0">Discount Value</th>
                                     <th class="wd-10p border-bottom-0">Usage Limit</th>
+                                    <th class="wd-10p border-bottom-0">Used Count</th>
+                                    <th class="wd-10p border-bottom-0">Expiry Date</th>
+                                    <th class="wd-10p border-bottom-0">Minimum Amount</th>
+                                    <th class="wd-10p border-bottom-0">Status</th>
                                     <th class="wd-25p border-bottom-0">Action</th>
                                 </tr>
                             </thead>
@@ -43,10 +46,12 @@
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $coupon->code }}</td>
-                                        <td>{{ $coupon->discount_amount }}</td>
-                                        <td>{{ $coupon->start_date }}</td>
-                                        <td>{{ $coupon->end_date }}</td>
+                                        <td>{{ $coupon->discount_type }}</td>
+                                        <td>{{ $coupon->discount_value }}</td>
                                         <td>{{ $coupon->usage_limit }}</td>
+                                        <td>{{ $coupon->used_count }}</td>
+                                        <td>{{ $coupon->expiry_date }}</td>
+                                        <td>{{ $coupon->minimum_order_amount }}</td>
                                         <td>{{ $coupon->status == 1 ? 'Published' : 'Unpublished' }}</td>
                                         <td>
                                             <div class="d-flex gap-1">
