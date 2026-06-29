@@ -19,7 +19,7 @@ class WebsiteControllewr extends Controller
         $first_three          = $latestProducts->slice(0, 3);
         $next_three           = $latestProducts->slice(3, 3);
 
-        $populerBrand         = Brand::where('status', 1)->latest()->get();
+        $populerBrand         = Brand::where('status', 1)->get();
         $first_three_brand    = $populerBrand->slice(0, 3);
         $next_three_brand     = $populerBrand->slice(3, 3);
 
@@ -43,6 +43,7 @@ class WebsiteControllewr extends Controller
 
         ]);
     }
+
 
     public function category($id)
     {
@@ -114,4 +115,6 @@ class WebsiteControllewr extends Controller
     {
         return view('website.about.index', ['categories'  => Category::where('status', 1)->get()]);
     }
+
+
 }

@@ -29,7 +29,7 @@
                                             href="{{ route('product.detail', $discount_product->id) }}">{{ $discount_product->name }}</a>
                                     </h5>
                                     <div class="product__item__price">
-                                        {{ $discount_product->selling_price }}
+                                        BDT {{ $discount_product->selling_price }}
                                         <span>{{ $discount_product->regular_price }}</span>
                                     </div>
                                 </div>

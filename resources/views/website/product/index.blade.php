@@ -9,8 +9,8 @@
             <div class="row">
                 <div class="col-lg-5 col-md-6">
 
-                    <div class="xzoom-container">
-                        <img class="xzoom3" src="{{ asset($product->image) }}" xoriginal="{{ asset($product->image) }}" width="400"/>
+                    <div class="xzoom-container" >
+                        <img class="xzoom3  " src="{{ asset($product->image) }}" xoriginal="{{ asset($product->image) }}" width="400" style="background-color: #f5f5f5;"/ >
                         <div class="xzoom-thumbs mt-3">
 
                             <a href="{{ asset($product->image) }}">
