@@ -25,6 +25,7 @@ use App\Http\Controllers\WebsiteControllewr;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [WebsiteControllewr::class, 'index'])->name('home');
+Route::get('/get-product-by-search-text', [WebsiteControllewr::class, 'getSearchProduct'])->name('get.product.by.search.text');
 Route::get('/product/category/{id}', [WebsiteControllewr::class, 'category'])->name('product.category');
 Route::get('/product/detail/{id}', [WebsiteControllewr::class, 'product'])->name('product.detail');
 Route::get('/shop', [WebsiteControllewr::class, 'shop'])->name('shop');

@@ -116,5 +116,10 @@ class WebsiteControllewr extends Controller
         return view('website.about.index', ['categories'  => Category::where('status', 1)->get()]);
     }
 
-
+    public function getSearchProduct()
+    {
+        $searchText = $_GET['search_text'];
+        $products   = Product::where('name', 'LIKE', '%' . $searchText . '%')->get(['id', 'name', 'category_id', 'image', 'selling_price']);
+        return response()->json($products);
+    }
 }

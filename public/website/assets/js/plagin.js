@@ -134,5 +134,17 @@ $('#regitrationForm').submit(function (event) {
     }
 });
 
+// $('#searchText').keyup(function () {
+//     var searchText = $(this).val();
+//     $.ajax({
+//         type: "GET",
+//         url: "{{ route('get.product.by.search.text') }}",
+//         data: { search_text: searchText },
+//         DataType: "JSON",
+//         success: function (response) {
+//             console.log(response);
+//         }
+//     });
+// });
 
 
